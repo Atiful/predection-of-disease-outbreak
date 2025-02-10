@@ -6,11 +6,11 @@ from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title='predection of outbreaks of diseases' , page_icon='doctor' , layout='wide')
 
-diabetes_model = pickle.load(open(r'C:\Users\ATIKA\.vscode\BACKEND\prediction of disease outbreak-diabetes\models\diabetes_model.sav' , 'rb'))
+diabetes_model = pickle.load(open(r'.\models\diabetes_model.sav' , 'rb'))
 
-parkinsons_model = pickle.load(open(r'C:\Users\ATIKA\.vscode\BACKEND\prediction of disease outbreak-diabetes\models\parkinsons_model.sav' , 'rb'))
+parkinsons_model = pickle.load(open(r'.\models\parkinsons_model.sav' , 'rb'))
 
-heart_model = pickle.load(open(r'C:\Users\ATIKA\.vscode\BACKEND\prediction of disease outbreak-diabetes\models\heart_model.sav' , 'rb'))
+heart_model = pickle.load(open(r'.\models\heart_model.sav' , 'rb'))
 
 with st.sidebar :
     selected = option_menu('predection of disease outbreak system' , ['Heart Disease Predection' , 'Diabetes predections' , 'Parkinson predection'] , menu_icon='hospital-fill' , icons=['activity' , 'heart' , 'person'], default_index=0)
