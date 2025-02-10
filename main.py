@@ -6,11 +6,15 @@ from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title='predection of outbreaks of diseases' , page_icon='doctor' , layout='wide')
 
-diabetes_model = pickle.load(open('models\diabetes_model.sav' , 'rb'))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Construct the full path to models
+diabetes_model = pickle.load(open(os.path.join(BASE_DIR, 'models', 'diabetes_model.sav'), 'rb'))
+parkinsons_model = pickle.load(open(os.path.join(BASE_DIR, 'models', 'parkinsons_model.sav'), 'rb'))
+heart_model = pickle.load(open(os.path.join(BASE_DIR, 'models', 'heart_model.sav'), 'rb'))
 
-parkinsons_model = pickle.load(open('models\parkinsons_model.sav' , 'rb'))
-
-heart_model = pickle.load(open('models\heart_model.sav' , 'rb'))
+# diabetes_model = pickle.load(open('models\diabetes_model.sav' , 'rb'))
+# parkinsons_model = pickle.load(open('models\parkinsons_model.sav' , 'rb'))
+# heart_model = pickle.load(open('models\heart_model.sav' , 'rb'))
 
 with st.sidebar :
     selected = option_menu('predection of disease outbreak system' , ['Heart Disease Predection' , 'Diabetes predections' , 'Parkinson predection'] , menu_icon='hospital-fill' , icons=['activity' , 'heart' , 'person'], default_index=0)
